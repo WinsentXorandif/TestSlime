@@ -595,8 +595,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4433072314245875365}
   - component: {fileID: 4433072314252793001}
-  - component: {fileID: 7268482605698298470}
-  m_Layer: 0
+  - component: {fileID: -390285807141966001}
+  - component: {fileID: 1730519550}
+  m_Layer: 6
   m_Name: Hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 4433072314245653857}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4433072314245935541}
@@ -641,7 +642,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7268482605698298470
+--- !u!136 &-390285807141966001
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433072314245653857}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 1.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &1730519550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,11 +665,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4433072314245653857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a0a782e783d18408f2de46979a18e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b91e0dfeb6f83641b4c2fe5fd850f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitData: {fileID: 0}
-  animator: {fileID: 0}
+  unitData: {fileID: 11400000, guid: 33da05c01cc40dc4892a29bc69031fca, type: 2}
+  animator: {fileID: 4433072314252793001}
   navMeshAgent: {fileID: 0}
   healthBar: {fileID: 5247132647396933002}
 --- !u!1 &4433072314245656315

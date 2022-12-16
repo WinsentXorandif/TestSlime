@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class Units : MonoBehaviour
 {
+    private const int MAX_ENEMYS = 5;
+    private const float MAX_DISTANCE = 1000.0f;
+
     [SerializeField]
     private UnitData unitData;
     [SerializeField]
@@ -50,7 +53,42 @@ public class Units : MonoBehaviour
 
     protected virtual void OnAttack() { }
     public virtual void OnDamage(int damage) { }
-    public virtual void OnDie() { }
+    protected virtual void OnDie() { }
+
+
+    protected bool FindEnemy(LayerMask enemyLayer)
+    {
+        float minDistance = MAX_DISTANCE;
+
+        Collider[] hitColliders = new Collider[MAX_ENEMYS];
+        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, findRange, hitColliders, enemyLayer);
+
+        if (numColliders == 0) return false;
+
+        int nearestEnemy = 0;
+
+        for (int i = 0; i < numColliders; i++)
+        {
+            float distance = Vector3.Distance(hitColliders[i].transform.position, transform.position);
+            if (distance < minDistance) { minDistance = distance; nearestEnemy = i; }
+        }
+        enemyCol = hitColliders[nearestEnemy];
+
+        if (minDistance < attackRange)
+        {
+            navMeshAgent.enabled = false;
+            return true; //HeroState.Attack;
+        }
+
+        return false;
+
+        //moveTargetPos = enemyCol.transform.position;
+        //navMeshAgent.enabled = true;
+        //navMeshAgent.destination = moveTargetPos;
+        //return HeroState.Move;
+
+    }
+
 
 
 }

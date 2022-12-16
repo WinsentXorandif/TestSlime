@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40654ba744eb0546a414d6b3747dacf, type: 3}
   m_Name: HeroData
   m_EditorClassIdentifier: 
-  unitHitPoint: 0
-  unitDefence: 0
-  unitAttack: 0
-  unitMoveSpeed: 0
+  unitHitPoint: 10
+  unitDefence: 1
+  unitAttack: 5
+  unitMoveSpeed: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
