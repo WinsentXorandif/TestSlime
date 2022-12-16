@@ -13,6 +13,7 @@ public class HeroMagic : HeroUnitPlay
     // Update is called once per frame
     void Update()
     {
-        
+        OnUpdate();
+
     }
 }

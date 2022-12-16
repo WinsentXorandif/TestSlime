@@ -13,6 +13,8 @@ public class EnemyBandit : EnemyUnitPlay
     // Update is called once per frame
     void Update()
     {
+
+        OnUpdate();
         
     }
 }

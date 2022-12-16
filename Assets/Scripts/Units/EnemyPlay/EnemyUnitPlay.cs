@@ -83,7 +83,7 @@ public class EnemyUnitPlay : Units
     {
         EnemyState newEnemyPlay = iEnemyPlayCurrent.Play();
 
-        Debug.Log($"newEnemyPlay = {newEnemyPlay}");
+        //Debug.Log($"newEnemyPlay = {newEnemyPlay}");
 
         if (newEnemyPlay != enemyStateCurrent)
         {
