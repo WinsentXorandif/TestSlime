@@ -18,11 +18,11 @@ public class EnemyAttack : IEnemyPlay
     {
         IsPlay = false;
         enemyUnit = enemy;
-        animator = enemyUnit.GetAnimator();
-        navMeshAgent = enemyUnit.GetNavMeshAgent();
-        navMeshAgent.speed = enemyUnit.GetMoveSpeed();
-        unitTransform = enemyUnit.transform;
-        attackRange = enemyUnit.GetAttackRange();
+        animator = enemy.GetAnimator();
+        navMeshAgent = enemy.GetNavMeshAgent();
+        navMeshAgent.speed = enemy.GetMoveSpeed();
+        unitTransform = enemy.transform;
+        attackRange = enemy.GetAttackRange();
     }
 
     public void BeginPlay()

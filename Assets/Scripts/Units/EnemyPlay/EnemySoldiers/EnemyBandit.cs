@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class EnemyBandit : EnemyUnitPlay
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnAttack()
     {
-        
+        if (enemyCol != null)
+        {
+            if (enemyCol.TryGetComponent<Units>(out var unit))
+            {
+                //unit.OnDamage(attack);
+                Debug.Log("OnDamage(attack)!!!");
+            }
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
 

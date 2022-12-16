@@ -43,11 +43,8 @@ public class EnemyMove : IEnemyPlay
 
         float distance = Vector3.Distance(navMeshAgent.destination, unitTransform.position);
 
-        Debug.Log($"distance = {distance}");
-
         if (distance < attackRange)
         {
-            Debug.Log($"Enemy prishel");
             navMeshAgent.enabled = false;
             return EnemyState.Attack;
         }

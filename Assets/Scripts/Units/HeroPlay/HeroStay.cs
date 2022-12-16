@@ -38,6 +38,11 @@ public class HeroStay : IHeroPlay
     {
         if (!IsPlay) return HeroState.None;
 
+        if (heroUnit.FindEnemy(heroUnit.GetEnemyLayer()))
+        {
+            return HeroState.Move;
+        }
+
         animator.Play("Idle");
 
         return HeroState.Stay;
