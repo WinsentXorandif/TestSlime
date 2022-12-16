@@ -24,7 +24,6 @@ public class Units : MonoBehaviour
     protected float findRange;
     protected int attack;
     protected float attackRange;
-    //protected float attackRangeHouse;
     protected float speed;
     protected LayerMask enemyLayer;
     protected GameObject projectile;
@@ -35,7 +34,6 @@ public class Units : MonoBehaviour
     public NavMeshAgent GetNavMeshAgent() { return navMeshAgent; }
     public float GetRange() { return findRange; }
     public float GetAttackRange() { return attackRange; }
-    //public float GetAttackRangeHouse() { return attackRangeHouse; }
     public float GetMoveSpeed() { return speed; }
     public LayerMask GetEnemyLayer() { return enemyLayer; }
 
@@ -58,7 +56,7 @@ public class Units : MonoBehaviour
     protected virtual void OnDie() { }
 
 
-    protected bool FindEnemy(LayerMask enemyLayer)
+    public bool FindEnemy(LayerMask enemyLayer)
     {
         float minDistance = MAX_DISTANCE;
 
@@ -75,14 +73,21 @@ public class Units : MonoBehaviour
             if (distance < minDistance) { minDistance = distance; nearestEnemy = i; }
         }
         enemyCol = hitColliders[nearestEnemy];
+        moveTargetPos = enemyCol.transform.position;
 
+        Debug.Log($"enemyCol = {enemyCol.name} moveTargetPos = {moveTargetPos}");
+
+        return true;
+
+        /*
         if (minDistance < attackRange)
         {
             navMeshAgent.enabled = false;
             return true; //HeroState.Attack;
         }
+        */
 
-        return false;
+        //return false;
 
         //moveTargetPos = enemyCol.transform.position;
         //navMeshAgent.enabled = true;

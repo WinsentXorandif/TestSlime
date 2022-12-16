@@ -35,6 +35,11 @@ public class EnemyStay : IEnemyPlay
     {
         if (!IsPlay) return EnemyState.None;
 
+        if (enemyUnit.FindEnemy(enemyUnit.GetEnemyLayer())) 
+        {
+            return EnemyState.Move;
+        }
+
         animator.Play("Idle");
 
         return EnemyState.Stay;

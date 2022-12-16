@@ -11,6 +11,7 @@ public class EnemyMove : IEnemyPlay
     private Animator animator;
     private NavMeshAgent navMeshAgent;
     private Transform unitTransform;
+    private float attackRange;
 
 
     public EnemyMove(EnemyUnitPlay enemy) 
@@ -21,10 +22,12 @@ public class EnemyMove : IEnemyPlay
         navMeshAgent = enemyUnit.GetNavMeshAgent();
         navMeshAgent.speed = enemyUnit.GetMoveSpeed();
         unitTransform = enemyUnit.transform;
+        attackRange = enemyUnit.GetAttackRange();
     }
 
     public void BeginPlay()
     {
+        navMeshAgent.destination = enemyUnit.moveTargetPos;
         IsPlay = true;
     }
 
@@ -38,16 +41,18 @@ public class EnemyMove : IEnemyPlay
     {
         if (!IsPlay) return EnemyState.None;
 
-        animator.Play("Walk");
         float distance = Vector3.Distance(navMeshAgent.destination, unitTransform.position);
 
-        if (distance < 1.0f)
+        Debug.Log($"distance = {distance}");
+
+        if (distance < attackRange)
         {
             Debug.Log($"Enemy prishel");
             navMeshAgent.enabled = false;
-            return EnemyState.Stay;
+            return EnemyState.Attack;
         }
 
+        animator.Play("Walk");
         return EnemyState.Move;
     }
 }
