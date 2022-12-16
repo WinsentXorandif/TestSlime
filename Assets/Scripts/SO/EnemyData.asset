@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitHitPoint: 8
   unitDefence: 1
+  findRange: 6
   unitAttack: 2
+  attackRange: 1.5
   unitMoveSpeed: 2
   enemyLayer:
     serializedVersion: 2

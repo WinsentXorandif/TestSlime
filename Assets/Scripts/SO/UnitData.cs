@@ -8,7 +8,11 @@ public class UnitData : ScriptableObject
     [SerializeField]
     private int unitDefence;
     [SerializeField]
+    private float findRange;
+    [SerializeField]
     private int unitAttack;
+    [SerializeField]
+    private float attackRange;
     [SerializeField]
     private float unitMoveSpeed;
     [SerializeField]
@@ -25,6 +29,14 @@ public class UnitData : ScriptableObject
     public int GetDefence()
     {
         return unitDefence;
+    }
+    public float GetFindRange() 
+    { 
+        return findRange;
+    }
+    public float GetAttackRange()
+    {
+        return attackRange;
     }
     public int GetAttack()
     {

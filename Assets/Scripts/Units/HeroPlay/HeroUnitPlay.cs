@@ -39,8 +39,8 @@ public class HeroUnitPlay : Units
 
     private void InitPlayStart()
     {
-        ActivateUnit = false;
-        healthBar.SetMaxHealth(hitPoint);
+        //ActivateUnit = false;
+        //healthBar.SetMaxHealth(hitPoint);
 
         unitStateCurrent = HeroState.Stay;
         iUnitPlayCurrent = unitPlayDict[unitStateCurrent];
@@ -79,10 +79,10 @@ public class HeroUnitPlay : Units
 
     //protected virtual void OnAttack() { }
 
-    private void OnDestroy()
-    {
-        OnUnitDie?.Invoke(this);  //????????????????
-    }
+    //private void OnDestroy()
+    //{
+    //    OnUnitDie?.Invoke(this);  //????????????????
+    //}
 
     public void OnUpdate()
     {

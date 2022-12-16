@@ -21,10 +21,10 @@ public class Units : MonoBehaviour
 
     protected int hitPoint;
     protected int defence;
-    protected int attack;
     protected float findRange;
+    protected int attack;
     protected float attackRange;
-    protected float attackRangeHouse;
+    //protected float attackRangeHouse;
     protected float speed;
     protected LayerMask enemyLayer;
     protected GameObject projectile;
@@ -33,9 +33,9 @@ public class Units : MonoBehaviour
     public Vector3 moveTargetPos { get; set; }
     public Animator GetAnimator() { return animator; }
     public NavMeshAgent GetNavMeshAgent() { return navMeshAgent; }
-    public float GetFindRange() { return findRange; }
+    public float GetRange() { return findRange; }
     public float GetAttackRange() { return attackRange; }
-    public float GetAttackRangeHouse() { return attackRangeHouse; }
+    //public float GetAttackRangeHouse() { return attackRangeHouse; }
     public float GetMoveSpeed() { return speed; }
     public LayerMask GetEnemyLayer() { return enemyLayer; }
 
@@ -45,6 +45,8 @@ public class Units : MonoBehaviour
         hitPoint = unitData.GetHitPoint();
         healthBar.SetMaxHealth(hitPoint);
         defence = unitData.GetDefence();
+        findRange = unitData.GetFindRange();
+        attackRange = unitData.GetAttackRange();
         attack = unitData.GetAttack();
         speed = unitData.GetMoveSpeed();
         enemyLayer = unitData.GetEnemyLayer();
