@@ -9,7 +9,6 @@ public class HeroMove : IHeroPlay
     private HeroUnitPlay heroUnit;
 
     private Animator animator;
-    private NavMeshAgent navMeshAgent;
     private Transform unitTransform;
     private float attackRange;
 
@@ -19,8 +18,6 @@ public class HeroMove : IHeroPlay
         IsPlay = false;
         heroUnit = hero;
         animator = hero.GetAnimator();
-        navMeshAgent = hero.GetNavMeshAgent();
-        navMeshAgent.speed = hero.GetMoveSpeed();
         unitTransform = hero.transform;
         attackRange = hero.GetAttackRange();
 
@@ -28,12 +25,6 @@ public class HeroMove : IHeroPlay
 
     public void BeginPlay()
     {
-        navMeshAgent.enabled = true;
-        navMeshAgent.destination = new Vector3(20f, 0f, 0f);
-        if (heroUnit.enemyCol != null)
-        {
-            navMeshAgent.destination = heroUnit.moveTargetPos;
-        }
         IsPlay = true;
     }
 
@@ -51,13 +42,15 @@ public class HeroMove : IHeroPlay
 
         if (heroUnit.FindEnemy(heroUnit.GetEnemyLayer()))
         {
+            unitTransform.LookAt(heroUnit.moveTargetPos);
             float distance = Vector3.Distance(heroUnit.moveTargetPos, unitTransform.position);
             if (distance < attackRange)
             {
-                navMeshAgent.enabled = false;
                 return HeroState.Attack;
             }
         }
+        unitTransform.eulerAngles = new Vector3(0f,90f,0f);
+        unitTransform.Translate(Vector3.forward * heroUnit.GetMoveSpeed() *Time.deltaTime);
 
         return HeroState.Move;
     }

@@ -8,7 +8,7 @@ public class EnemyStay : IEnemyPlay
     private bool IsPlay;
     private EnemyUnitPlay enemyUnit;
     private Animator animator;
-    private NavMeshAgent navMeshAgent;
+
 
 
     public EnemyStay(EnemyUnitPlay enemy) 
@@ -17,8 +17,6 @@ public class EnemyStay : IEnemyPlay
 
         enemyUnit = enemy;
         animator = enemy.GetAnimator();
-        navMeshAgent = enemy.GetNavMeshAgent();
-
     }
 
     public void BeginPlay()

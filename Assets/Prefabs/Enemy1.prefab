@@ -1002,7 +1002,6 @@ GameObject:
   - component: {fileID: 1443394158769103969}
   - component: {fileID: 1443394158778206957}
   - component: {fileID: 8884883939656940636}
-  - component: {fileID: 6775735871006925033}
   - component: {fileID: 1775487472}
   m_Layer: 7
   m_Name: Enemy1
@@ -1063,28 +1062,6 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
---- !u!195 &6775735871006925033
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443394158768851795}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.5
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &1775487472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,7 +1076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitData: {fileID: 11400000, guid: fe948a2e239a2d94091651b0e4e9190a, type: 2}
   animator: {fileID: 1443394158778206957}
-  navMeshAgent: {fileID: 6775735871006925033}
+  navMeshAgent: {fileID: 0}
   healthBar: {fileID: 4869641408830752480}
 --- !u!1 &1443394158768853613
 GameObject:

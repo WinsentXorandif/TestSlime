@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8710568635472504546}
   - component: {fileID: 8710568635472504547}
   - component: {fileID: 1224473047103079087}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RoadGen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,3 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17df10d6e90eb2847b1d8903ecb887bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groung: {fileID: 0}
+  hero: {fileID: 0}
+  data: {fileID: 23800000, guid: 15cd90ff803aadc4c98787f9ce4dc239, type: 2}

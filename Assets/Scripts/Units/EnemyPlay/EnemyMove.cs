@@ -9,7 +9,6 @@ public class EnemyMove : IEnemyPlay
     private EnemyUnitPlay enemyUnit;
 
     private Animator animator;
-    private NavMeshAgent navMeshAgent;
     private Transform unitTransform;
     private float attackRange;
 
@@ -19,21 +18,12 @@ public class EnemyMove : IEnemyPlay
         IsPlay = false;
         enemyUnit = enemy;
         animator = enemyUnit.GetAnimator();
-        navMeshAgent = enemyUnit.GetNavMeshAgent();
-        navMeshAgent.speed = enemyUnit.GetMoveSpeed();
         unitTransform = enemyUnit.transform;
         attackRange = enemyUnit.GetAttackRange();
     }
 
     public void BeginPlay()
     {
-        navMeshAgent.enabled = true;
-        navMeshAgent.destination = new Vector3(20f, 0f, 0f);
-
-        if (enemyUnit.enemyCol != null)
-        {
-            navMeshAgent.destination = enemyUnit.moveTargetPos; 
-        }
         IsPlay = true;
     }
 
@@ -48,13 +38,15 @@ public class EnemyMove : IEnemyPlay
         if (!IsPlay) return EnemyState.None;
 
         animator.Play("Walk");
-        float distance = Vector3.Distance(navMeshAgent.destination, unitTransform.position);
+        float distance = Vector3.Distance(enemyUnit.moveTargetPos, unitTransform.position);
 
         if (distance < attackRange)
         {
-            navMeshAgent.enabled = false;
             return EnemyState.Attack;
         }
+        unitTransform.eulerAngles = new Vector3(0f, -90f, 0f);
+        unitTransform.Translate(Vector3.forward * enemyUnit.GetMoveSpeed() * Time.deltaTime);
+
         return EnemyState.Move;
     }
 }

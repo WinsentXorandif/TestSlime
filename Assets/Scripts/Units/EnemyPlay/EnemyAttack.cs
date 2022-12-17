@@ -9,7 +9,6 @@ public class EnemyAttack : IEnemyPlay
     private EnemyUnitPlay enemyUnit;
 
     private Animator animator;
-    private NavMeshAgent navMeshAgent;
     private Transform unitTransform;
     private float attackRange;
 
@@ -19,8 +18,6 @@ public class EnemyAttack : IEnemyPlay
         IsPlay = false;
         enemyUnit = enemy;
         animator = enemy.GetAnimator();
-        navMeshAgent = enemy.GetNavMeshAgent();
-        navMeshAgent.speed = enemy.GetMoveSpeed();
         unitTransform = enemy.transform;
         attackRange = enemy.GetAttackRange();
     }

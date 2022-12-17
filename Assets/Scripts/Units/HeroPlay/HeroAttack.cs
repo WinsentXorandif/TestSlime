@@ -9,7 +9,6 @@ public class HeroAttack : IHeroPlay
     private HeroUnitPlay heroUnit;
 
     private Animator animator;
-    private NavMeshAgent navMeshAgent;
     private Transform unitTransform;
     private float attackRange;
 
@@ -19,8 +18,6 @@ public class HeroAttack : IHeroPlay
         IsPlay = false;
         heroUnit = hero;
         animator = hero.GetAnimator();
-        navMeshAgent = hero.GetNavMeshAgent();
-        navMeshAgent.speed = hero.GetMoveSpeed();
         unitTransform = hero.transform;
         attackRange = hero.GetAttackRange();
     }
