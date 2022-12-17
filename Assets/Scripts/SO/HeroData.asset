@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitHitPoint: 10
   unitDefence: 1
-  findRange: 5
+  findRange: 40
   unitAttack: 5
   attackRange: 5
   unitMoveSpeed: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  projectile: {fileID: 0}
+  projectile: {fileID: 3132187536569228442, guid: e71638080d1b65c479981030e36a6a49, type: 3}

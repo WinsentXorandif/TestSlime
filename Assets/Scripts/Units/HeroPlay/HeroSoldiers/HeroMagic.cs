@@ -5,28 +5,20 @@ using UnityEngine;
 public class HeroMagic : HeroUnitPlay
 {
     private const float MAX_ANGLE_DEGREES = 40f;
+    private const int PROJECTILE_COUNT = 3;
 
     [SerializeField]
     private Transform arrowStartPoint;
 
-    /*
-    private ProjectileFactory projectileFactory;
+    private ObjectsPool<MagicBall> projectilePool;
     private float g = Physics.gravity.y;
     private float AngleInDegrees;
 
 
     private void Start()
     {
-        projectileFactory = new ProjectileFactory(projectile, attack);
+        projectilePool = new ObjectsPool<MagicBall>(projectile, transform, PROJECTILE_COUNT);
     }
-
-    //  private Vector3 FindEnemyPoint()
-    //  {
-    //      float timeProjectile = (enemyCol.transform.position - transform.position).magnitude / projectileSpeed;
-    //      Vector3 enemyNewPos = enemyCol.transform.position + enemyCol.GetComponent<Rigidbody>().velocity * timeProjectile;
-    //      return enemyNewPos;
-    //  }
-
 
     public void Shoot()
     {
@@ -36,10 +28,6 @@ public class HeroMagic : HeroUnitPlay
 
         Vector3 fromTo = enemyTarget - transform.position;
         Vector3 fromToXZ = new Vector3(fromTo.x, 0f, fromTo.z);
-
-
-        AngleInDegrees = Mathf.Floor(fromTo.magnitude * MAX_ANGLE_DEGREES / findRange);
-        arrowStartPoint.localEulerAngles = new Vector3(-AngleInDegrees, 0f, 0f);
 
         transform.rotation = Quaternion.LookRotation(fromToXZ, Vector3.up);
 
@@ -51,19 +39,19 @@ public class HeroMagic : HeroUnitPlay
         float v2 = (g * x * x) / (2 * (y - Mathf.Tan(AngleInRadians) * x) * Mathf.Pow(Mathf.Cos(AngleInRadians), 2));
         float v = Mathf.Sqrt(Mathf.Abs(v2));
 
-        projectileFactory.CreateArrow(arrowStartPoint, v);
+        MagicBall mb = projectilePool.GetFreeElement();
+        mb.transform.position = arrowStartPoint.position;
+        mb.transform.rotation = arrowStartPoint.rotation;
+        mb.InitBall(attack, v);
 
     }
-
-    */
 
 
     protected override void OnAttack()
     {
         if (enemyCol != null)
         {
-            Debug.Log("SHOOT!!!!!!!!");
-            //Shoot();
+            Shoot();
         }
     }
 

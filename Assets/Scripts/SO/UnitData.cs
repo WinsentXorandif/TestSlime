@@ -18,7 +18,7 @@ public class UnitData : ScriptableObject
     [SerializeField]
     private LayerMask enemyLayer;
     [SerializeField]
-    private GameObject projectile;
+    private MagicBall projectile;
 
 
 
@@ -50,7 +50,7 @@ public class UnitData : ScriptableObject
     {
         return enemyLayer;
     }
-    public GameObject GetProjectile()
+    public MagicBall GetProjectile()
     {
         return projectile;
     }

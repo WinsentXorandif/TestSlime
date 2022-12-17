@@ -27,7 +27,13 @@ public class EnemyMove : IEnemyPlay
 
     public void BeginPlay()
     {
-        navMeshAgent.destination = enemyUnit.moveTargetPos;
+        navMeshAgent.enabled = true;
+        navMeshAgent.destination = new Vector3(20f, 0f, 0f);
+
+        if (enemyUnit.enemyCol != null)
+        {
+            navMeshAgent.destination = enemyUnit.moveTargetPos; 
+        }
         IsPlay = true;
     }
 
@@ -41,6 +47,7 @@ public class EnemyMove : IEnemyPlay
     {
         if (!IsPlay) return EnemyState.None;
 
+        animator.Play("Walk");
         float distance = Vector3.Distance(navMeshAgent.destination, unitTransform.position);
 
         if (distance < attackRange)
@@ -48,8 +55,6 @@ public class EnemyMove : IEnemyPlay
             navMeshAgent.enabled = false;
             return EnemyState.Attack;
         }
-
-        animator.Play("Walk");
         return EnemyState.Move;
     }
 }

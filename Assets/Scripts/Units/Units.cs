@@ -26,7 +26,7 @@ public class Units : MonoBehaviour
     protected float attackRange;
     protected float speed;
     protected LayerMask enemyLayer;
-    protected GameObject projectile;
+    protected MagicBall projectile;
 
     public Collider enemyCol { get; set; }
     public Vector3 moveTargetPos { get; set; }
@@ -75,25 +75,7 @@ public class Units : MonoBehaviour
         enemyCol = hitColliders[nearestEnemy];
         moveTargetPos = enemyCol.transform.position;
 
-        Debug.Log($"enemyCol = {enemyCol.name} moveTargetPos = {moveTargetPos}");
-
         return true;
-
-        /*
-        if (minDistance < attackRange)
-        {
-            navMeshAgent.enabled = false;
-            return true; //HeroState.Attack;
-        }
-        */
-
-        //return false;
-
-        //moveTargetPos = enemyCol.transform.position;
-        //navMeshAgent.enabled = true;
-        //navMeshAgent.destination = moveTargetPos;
-        //return HeroState.Move;
-
     }
 
 

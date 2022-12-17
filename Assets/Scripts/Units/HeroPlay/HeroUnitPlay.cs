@@ -9,9 +9,7 @@ public class HeroUnitPlay : Units
     public Action<HeroUnitPlay> OnUnitDie;
    // public Action OnActivateUnit;
 
-    private const float DESTROY_TIME = 5f;
-    //private const int MAX_ENEMYS = 5;
-    //private const float MAX_DISTANCE = 1000.0f;
+    private const float DESTROY_TIME = 0.5f;
 
     protected Dictionary<HeroState, IHeroPlay> unitPlayDict;
     protected IHeroPlay iUnitPlayCurrent;
@@ -39,9 +37,6 @@ public class HeroUnitPlay : Units
 
     private void InitPlayStart()
     {
-        //ActivateUnit = false;
-        //healthBar.SetMaxHealth(hitPoint);
-
         unitStateCurrent = HeroState.Stay;
         iUnitPlayCurrent = unitPlayDict[unitStateCurrent];
         iUnitPlayCurrent.BeginPlay();
@@ -76,13 +71,6 @@ public class HeroUnitPlay : Units
         //SetNewUnitPlay(UnitStates.Die);
 
     }
-
-    //protected virtual void OnAttack() { }
-
-    //private void OnDestroy()
-    //{
-    //    OnUnitDie?.Invoke(this);  //????????????????
-    //}
 
     public void OnUpdate()
     {

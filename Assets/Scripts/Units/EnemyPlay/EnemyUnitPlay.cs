@@ -7,7 +7,7 @@ public class EnemyUnitPlay : Units
 {
     public Action<EnemyUnitPlay> OnUnitDie;
 
-    private const float DESTROY_TIME = 5f;
+    private const float DESTROY_TIME = 0.5f;
     //private const int MAX_ENEMYS = 5;
     //private const float MAX_DISTANCE = 1000.0f;
 
@@ -68,16 +68,8 @@ public class EnemyUnitPlay : Units
         navMeshAgent.enabled = false;
         Destroy(healthBar.gameObject);
         Destroy(coll);
-        Destroy(gameObject, DESTROY_TIME);
-        //SetNewUnitPlay(EnemyUnitStates.Die);
-
+        Destroy(gameObject);//, DESTROY_TIME);
     }
-
-    //private void OnDestroy()
-    //{
-    //    OnUnitDie?.Invoke(this);
-    //}
-
 
     public void OnUpdate()
     {

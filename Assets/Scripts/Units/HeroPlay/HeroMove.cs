@@ -28,9 +28,13 @@ public class HeroMove : IHeroPlay
 
     public void BeginPlay()
     {
-        navMeshAgent.destination = heroUnit.moveTargetPos;
+        navMeshAgent.enabled = true;
+        navMeshAgent.destination = new Vector3(20f, 0f, 0f);
+        if (heroUnit.enemyCol != null)
+        {
+            navMeshAgent.destination = heroUnit.moveTargetPos;
+        }
         IsPlay = true;
-
     }
 
     public void EndPlay()
@@ -43,15 +47,18 @@ public class HeroMove : IHeroPlay
     {
         if (!IsPlay) return HeroState.None;
 
-        float distance = Vector3.Distance(navMeshAgent.destination, unitTransform.position);
+        animator.Play("Walk");
 
-        if (distance < attackRange)
+        if (heroUnit.FindEnemy(heroUnit.GetEnemyLayer()))
         {
-            navMeshAgent.enabled = false;
-            return HeroState.Attack;
+            float distance = Vector3.Distance(heroUnit.moveTargetPos, unitTransform.position);
+            if (distance < attackRange)
+            {
+                navMeshAgent.enabled = false;
+                return HeroState.Attack;
+            }
         }
 
-        animator.Play("Walk");
         return HeroState.Move;
     }
 }
