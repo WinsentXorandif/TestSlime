@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBandit : EnemyUnitPlay
 {
+
     protected override void OnAttack()
     {
         if (enemyCol != null)

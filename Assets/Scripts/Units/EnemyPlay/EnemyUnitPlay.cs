@@ -15,6 +15,8 @@ public class EnemyUnitPlay : Units
     protected IEnemyPlay iEnemyPlayCurrent;
     protected EnemyState enemyStateCurrent;
 
+    private UIControl uiControl;
+
     private void InitPlayDict()
     {
         enemyPlayDict = new Dictionary<EnemyState, IEnemyPlay>
@@ -32,6 +34,16 @@ public class EnemyUnitPlay : Units
         InitPlayDict();
         InitPlayStart();
     }
+
+
+
+    private void Start()
+    {
+        Debug.Log("Start Unemy unit!");
+        uiControl = FindObjectOfType<UIControl>();
+
+    }
+
 
     private void InitPlayStart()
     {
@@ -61,8 +73,21 @@ public class EnemyUnitPlay : Units
         }
     }
 
+    public void UpDateHP(int hp, int att) 
+    {
+        hitPoint += hp;
+        attack += att;
+    }
+
     protected override void OnDie()
     {
+        int CounsMax = UnityEngine.Random.Range(4, 12);
+
+        if (uiControl) 
+        {
+            uiControl.CreateCoins(CounsMax, this.healthBar.transform);
+        }
+
         Destroy(healthBar.gameObject);
         Destroy(coll);
         Destroy(gameObject);//, DESTROY_TIME);

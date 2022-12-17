@@ -46,6 +46,17 @@ public class HeroMagic : HeroUnitPlay
 
     }
 
+    public void UpDateHP() 
+    {
+        hitPoint += 5;
+        healthBar.SetMaxHealth(hitPoint);
+
+    }
+
+    public void UpDateAttack()
+    {
+        attack += 2;
+    }
 
     protected override void OnAttack()
     {

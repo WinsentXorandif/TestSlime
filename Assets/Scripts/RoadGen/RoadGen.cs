@@ -68,6 +68,7 @@ public class RoadGen : MonoBehaviour
             newpos.z = Random.Range(-1, 1);
 
             GameObject en = Instantiate(enemy, newpos, enemyPoint.rotation);
+            en.GetComponent<EnemyUnitPlay>().UpDateHP(count, count);
             newpos = en.transform.position;
         }
     }
