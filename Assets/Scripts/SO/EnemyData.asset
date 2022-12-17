@@ -17,7 +17,7 @@ MonoBehaviour:
   findRange: 20
   unitAttack: 2
   attackRange: 0.9
-  unitMoveSpeed: 2
+  unitMoveSpeed: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
