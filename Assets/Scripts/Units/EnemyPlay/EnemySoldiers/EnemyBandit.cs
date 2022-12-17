@@ -10,8 +10,8 @@ public class EnemyBandit : EnemyUnitPlay
         {
             if (enemyCol.TryGetComponent<Units>(out var unit))
             {
-                //unit.OnDamage(attack);
-                Debug.Log("OnDamage(attack)!!!");
+                unit.OnDamage(attack);
+                //Debug.Log("OnDamage(attack)!!!");
             }
         }
     }

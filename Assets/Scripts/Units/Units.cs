@@ -13,8 +13,6 @@ public class Units : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
-    protected NavMeshAgent navMeshAgent;
-    [SerializeField]
     protected HealthBar healthBar;
 
     protected Collider coll;
@@ -31,7 +29,6 @@ public class Units : MonoBehaviour
     public Collider enemyCol { get; set; }
     public Vector3 moveTargetPos { get; set; }
     public Animator GetAnimator() { return animator; }
-    public NavMeshAgent GetNavMeshAgent() { return navMeshAgent; }
     public float GetRange() { return findRange; }
     public float GetAttackRange() { return attackRange; }
     public float GetMoveSpeed() { return speed; }

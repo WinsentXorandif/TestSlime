@@ -37,12 +37,21 @@ public class EnemyMove : IEnemyPlay
     {
         if (!IsPlay) return EnemyState.None;
 
-        animator.Play("Walk");
-        float distance = Vector3.Distance(enemyUnit.moveTargetPos, unitTransform.position);
+        enemyUnit.FindEnemy(enemyUnit.GetEnemyLayer()); 
 
-        if (distance < attackRange)
+        animator.Play("Walk");
+        if (enemyUnit.enemyCol != null)
         {
-            return EnemyState.Attack;
+            float distance = Vector3.Distance(enemyUnit.moveTargetPos, unitTransform.position);
+
+            unitTransform.LookAt(enemyUnit.moveTargetPos);
+            unitTransform.Translate(Vector3.forward * enemyUnit.GetMoveSpeed() * Time.deltaTime);
+
+            if (distance < attackRange)
+            {
+                return EnemyState.Attack;
+            }
+            return EnemyState.Move;
         }
         unitTransform.eulerAngles = new Vector3(0f, -90f, 0f);
         unitTransform.Translate(Vector3.forward * enemyUnit.GetMoveSpeed() * Time.deltaTime);

@@ -10,7 +10,6 @@ public class HeroStay : IHeroPlay
     private HeroUnitPlay heroUnit;
 
     private Animator animator;
-    private NavMeshAgent navMeshAgent;
     private Transform unitTransform;
     private float attackRange;
 
@@ -22,11 +21,8 @@ public class HeroStay : IHeroPlay
 
         heroUnit = hero;
         animator = hero.GetAnimator();
-        //navMeshAgent = hero.GetNavMeshAgent();
         unitTransform = hero.transform;
         attackRange = hero.GetAttackRange();
-
-
     }
 
     public void BeginPlay()
@@ -49,7 +45,6 @@ public class HeroStay : IHeroPlay
             float distance = Vector3.Distance(heroUnit.moveTargetPos, unitTransform.position);
             if (distance < attackRange)
             {
-                //navMeshAgent.enabled = false;
                 return HeroState.Attack;
             }
 

@@ -47,6 +47,6 @@ public class HeroAttack : IHeroPlay
             animator.Play("Cast");
             return HeroState.Attack;
         }
-        return HeroState.Stay;
+        return HeroState.Move;
     }
 }

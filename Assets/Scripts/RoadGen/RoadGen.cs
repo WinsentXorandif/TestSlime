@@ -33,11 +33,9 @@ public class RoadGen : MonoBehaviour
 
     public void CreateNewGround() 
     {
-        Debug.Log("CreateNewGround!!!!!!!");
 
         if (groundList.Count > 2)
         {
-            //groundList.Remove(groundList[groundList.Count - 1]);
             Destroy(groundList[groundList.Count - 2]);
         }
 

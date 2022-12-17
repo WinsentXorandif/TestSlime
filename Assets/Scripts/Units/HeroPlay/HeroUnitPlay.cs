@@ -64,7 +64,7 @@ public class HeroUnitPlay : Units
 
     protected override void OnDie()
     {
-        navMeshAgent.enabled = false;
+
         Destroy(healthBar.gameObject);
         Destroy(coll);
         Destroy(gameObject, DESTROY_TIME);

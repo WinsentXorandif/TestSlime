@@ -35,8 +35,6 @@ public class EnemyUnitPlay : Units
 
     private void InitPlayStart()
     {
-        //navMeshAgent.enabled = false;
-
         enemyStateCurrent = EnemyState.Stay;
         iEnemyPlayCurrent = enemyPlayDict[enemyStateCurrent];
         iEnemyPlayCurrent.BeginPlay();

@@ -39,11 +39,11 @@ public class EnemyAttack : IEnemyPlay
         if (enemyUnit.enemyCol != null)
         {
             float distance = Vector3.Distance(enemyUnit.enemyCol.transform.position, unitTransform.position);
+            unitTransform.LookAt(enemyUnit.enemyCol.transform.position);
             if (distance > attackRange)
             {
-                return EnemyState.Stay;
+                return EnemyState.Move;
             }
-            unitTransform.LookAt(enemyUnit.enemyCol.transform.position);
             animator.Play("Attack");
             return EnemyState.Attack;
         }
