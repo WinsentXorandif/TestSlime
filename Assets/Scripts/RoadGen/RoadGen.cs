@@ -19,7 +19,7 @@ public class RoadGen : MonoBehaviour
     private float offsetX;
     private Vector3 newPos;
 
-    private List<GameObject> groundList = new(); 
+    private List<GameObject> groundList = new List<GameObject>(); 
 
 
     private void Start()

@@ -11,13 +11,13 @@ public class GamePlay : MonoBehaviour
     [SerializeField]
     private Transform enemyPos;
 
-    private List<EnemyBandit> enemyList = new();
+    //private List<EnemyBandit> enemyList = new();
 
 
 
     public void addToList(EnemyBandit element) 
     {
-        enemyList.Add(element);
+        //enemyList.Add(element);
 
     }
 
